@@ -5,7 +5,7 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import pdf from "../../Assets/Shankara's Resume.pdf";
 
-// ✅ Set worker from unpkg CDN
+// ✅ Correct way: tell pdfjs where the worker is
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 function ResumeNew() {
@@ -30,7 +30,6 @@ function ResumeNew() {
           onLoadSuccess={onDocumentLoadSuccess}
           className="d-flex justify-content-center"
         >
-          {/* ✅ Renders ALL pages dynamically */}
           {Array.from(new Array(numPages), (el, index) => (
             <Page
               key={`page_${index + 1}`}
