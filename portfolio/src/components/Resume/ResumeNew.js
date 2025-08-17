@@ -9,10 +9,9 @@ import { Document, Page, pdfjs } from "react-pdf";
 
 // ✅ Point workerSrc directly to node_modules
 
-// ✅ Use worker from node_modules instead of CDN
-import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `/node_modules/pdfjs-dist/build/pdf.worker.min.mjs`;
+
+
 
 function ResumeNew() {
   const [width, setWidth] = useState(window.innerWidth);
