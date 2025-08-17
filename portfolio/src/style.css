@@ -155,8 +155,8 @@ button:focus {
 }
 
 .logo {
-  height: 1.4em !important;
-  width: 2.5em !important;
+    height: 6.4em !important;
+    width: 4.5em !important;
 }
 
 .navbar-nav .nav-link {
@@ -315,6 +315,11 @@ button:focus {
     padding-top: 2em !important;
     padding-bottom: 2em !important;
   }
+  .home-section {
+ 
+  padding-bottom: 0px !important;
+ 
+}
 }
 
 .home-about-section {

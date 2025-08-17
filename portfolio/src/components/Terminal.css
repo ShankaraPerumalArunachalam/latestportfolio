@@ -88,3 +88,8 @@ body {
     from, to { border-right: 2px solid #f0f0f0; }
     50% { border-right-color: transparent; }
 }
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        flex-direction: column;
+    }}

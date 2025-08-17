@@ -38,7 +38,7 @@ function App() {
         <p>Please choose your experience:</p>
         <div className="modal-buttons">
           <button onClick={handleRecruiterClick}>For Recruiters</button>
-          <button onClick={handleTerminalClick}>Enter Terminal</button>
+          <button onClick={handleTerminalClick}>For Developers</button>
         </div>
       </Modal>
 
