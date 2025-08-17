@@ -3,9 +3,9 @@ import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import { AiOutlineDownload } from "react-icons/ai";
-import pdf from "../../Assets/Shankara's Resume.pdf";
-import page1 from "../../Assets/resume-page1.jpg";
-import page2 from "../../Assets/resume-page2.jpg";
+import pdf from "../../Assets/Shankar's-Resume.pdf";
+import page1 from "../../Assets/Shankar's-Resume_page-0001.jpg";
+import page2 from "../../Assets/Shankar's-Resume_page-0002.jpg";
 
 function ResumeNew() {
   const [width, setWidth] = useState(window.innerWidth);
