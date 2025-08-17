@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/Shankara's Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-
-
-// ✅ Point workerSrc directly to node_modules
-
-
-
-
+import pdf from "../../Assets/Shankara's Resume.pdf";
+import page1 from "../../Assets/resume-page1.jpg";
+import page2 from "../../Assets/resume-page2.jpg";
 
 function ResumeNew() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -27,33 +21,31 @@ function ResumeNew() {
       <Container fluid className="resume-section">
         <Particle />
 
-        {/* Top Download Button */}
-        
+        {/* PDF as images (page by page) */}
+        <Row className="resume" style={{ justifyContent: "center" }}>
+          <img
+            src={page1}
+            alt="Resume Page 1"
+            style={{
+              width: width > 786 ? "70%" : "100%",
+              marginBottom: "20px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+            }}
+          />
+          <img
+            src={page2}
+            alt="Resume Page 2"
+            style={{
+              width: width > 786 ? "70%" : "100%",
+              borderRadius: "10px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+            }}
+          />
+        </Row>
 
-        {/* Resume Viewer */}
-       <Row className="resume">
-  <Document
-    file={pdf}
-    className="d-flex flex-column align-items-center"
-  >
-    <Page
-      pageNumber={1}
-      scale={width > 786 ? 1.7 : 0.6}
-      renderTextLayer={false}
-      renderAnnotationLayer={false}
-    />
-    <Page
-      pageNumber={2}
-      scale={width > 786 ? 1.7 : 0.6}
-      renderTextLayer={false}
-      renderAnnotationLayer={false}
-    />
-  </Document>
-</Row>
-
-
-        {/* Bottom Download Button */}
-        <Row style={{ justifyContent: "center", position: "relative" }}>
+        {/* Download Button */}
+        <Row style={{ justifyContent: "center", position: "relative", marginTop: "20px" }}>
           <Button
             variant="primary"
             href={pdf}
