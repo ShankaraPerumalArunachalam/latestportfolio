@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { Container, Row } from "react-bootstrap";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
 import pdf from "../../Assets/Shankara's Resume.pdf";
 
-// ✅ Correct way: tell pdfjs where the worker is
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+// ✅ Worker fix
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.js",
+  import.meta.url
+).toString();
 
 function ResumeNew() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -25,11 +26,7 @@ function ResumeNew() {
   return (
     <Container fluid className="resume-section">
       <Row className="resume d-flex justify-content-center">
-        <Document
-          file={pdf}
-          onLoadSuccess={onDocumentLoadSuccess}
-          className="d-flex justify-content-center"
-        >
+        <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
           {Array.from(new Array(numPages), (el, index) => (
             <Page
               key={`page_${index + 1}`}
