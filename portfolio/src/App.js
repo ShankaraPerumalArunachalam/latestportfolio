@@ -15,7 +15,7 @@ import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/ResumeNew";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-
+import Minimalist  from  "./components/Minimalist"
 function App() {
   const [showModal, setShowModal] = useState(true);
   const [view, setView] = useState(null); // recruiter | terminal | null
@@ -24,7 +24,10 @@ function App() {
     setView('recruiter');
     setShowModal(false);
   };
-
+const handleMinimalistClick = () => {
+    setView('minimalist');
+    setShowModal(false);
+  };
   const handleTerminalClick = () => {
     setView('terminal');
     setShowModal(false);
@@ -39,12 +42,13 @@ function App() {
         <div className="modal-buttons">
           <button onClick={handleRecruiterClick}>For Recruiters</button>
           <button onClick={handleTerminalClick}>For Developers</button>
+          <button onClick={handleMinimalistClick}>For Minimalist</button>
         </div>
       </Modal>
 
       {/* Show developer terminal */}
       {!showModal && view === 'terminal' && <Terminal setView={setView} />}
-
+ {!showModal && view === 'minimalist' && <Minimalist setView={setView} />}
       {/* Show recruiter normal site */}
       {!showModal && view === 'recruiter' && (
         <Router>
